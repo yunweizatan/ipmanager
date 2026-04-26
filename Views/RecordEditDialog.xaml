@@ -1,0 +1,260 @@
+<Window x:Class="IPManage.Views.RecordEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding EditorTitle}"
+        Width="520"
+        SizeToContent="Height"
+        MinWidth="460"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        Background="{DynamicResource Brush.WindowBackground}">
+
+    <Border Padding="28,24">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="24" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <StackPanel Grid.Row="0">
+                <TextBlock FontSize="18" FontWeight="Bold"
+                           Foreground="{DynamicResource Brush.TextPrimary}"
+                           Text="{Binding EditorTitle}" />
+                <TextBlock Margin="0,4,0,0"
+                           FontSize="12"
+                           Foreground="{DynamicResource Brush.TextSecondary}"
+                           Text="保存时自动校验 IP 唯一性，空闲状态下设备名称可留空。" />
+            </StackPanel>
+
+            <!-- Row 1: IP + 设备名称 -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="14" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="IP 地址" />
+                    <TextBox Style="{StaticResource InputTextBoxStyle}"
+                             Text="{Binding IpAddress, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="设备名称" />
+                    <TextBox Style="{StaticResource InputTextBoxStyle}"
+                             Text="{Binding DeviceName, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Row 2: 资产编号 + 使用人 -->
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="14" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="资产编号" />
+                    <TextBox Style="{StaticResource InputTextBoxStyle}"
+                             Text="{Binding AssetNumber, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="使用人" />
+                    <TextBox Style="{StaticResource InputTextBoxStyle}"
+                             Text="{Binding Owner, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Row 3: VLAN + 网段 -->
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="14" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="VLAN" />
+                    <TextBox Style="{StaticResource InputTextBoxStyle}"
+                             Text="{Binding Vlan, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="网段" />
+                    <TextBox Style="{StaticResource InputTextBoxStyle}"
+                             Text="{Binding Subnet, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Row 4: 设备类型 + 状态 -->
+            <Grid Grid.Row="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="14" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="设备类型" />
+                    <TextBox Style="{StaticResource InputTextBoxStyle}"
+                             Text="{Binding DeviceType, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="状态" />
+                    <ComboBox Style="{StaticResource ModernComboBoxStyle}"
+                              Height="36"
+                              ItemsSource="{Binding EditorStatusOptions}"
+                              SelectedItem="{Binding SelectedStatus}" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Row 5: 申请时间 + 密码 -->
+            <Grid Grid.Row="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="14" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="申请时间" />
+                    <TextBox Style="{StaticResource InputTextBoxStyle}"
+                             Text="{Binding ApplyTimeText, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Style="{StaticResource FormLabelStyle}" Text="密码" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="8" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="PasswordTextInput"
+                                 Grid.Column="0"
+                                 Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox" BasedOn="{StaticResource InputTextBoxStyle}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEditorPasswordVisible}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+                        <PasswordBox x:Name="PasswordHiddenInput"
+                                     Grid.Column="0"
+                                     PasswordChanged="OnPasswordChanged">
+                            <PasswordBox.Style>
+                                <Style TargetType="PasswordBox">
+                                    <Setter Property="Height" Value="36" />
+                                    <Setter Property="Padding" Value="12,0" />
+                                    <Setter Property="FontSize" Value="13" />
+                                    <Setter Property="Foreground" Value="{DynamicResource Brush.TextPrimary}" />
+                                    <Setter Property="Background" Value="{DynamicResource Brush.SurfaceSecondary}" />
+                                    <Setter Property="BorderBrush" Value="{DynamicResource Brush.SurfaceBorder}" />
+                                    <Setter Property="BorderThickness" Value="1" />
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEditorPasswordVisible}" Value="True">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </PasswordBox.Style>
+                        </PasswordBox>
+                        <Button Grid.Column="2"
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                Padding="12,9"
+                                Click="OnTogglePasswordVisibilityClick"
+                                Content="{Binding EditorPasswordToggleText}" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
+            <!-- Row 6: 备注 -->
+            <StackPanel Grid.Row="12">
+                <TextBlock Style="{StaticResource FormLabelStyle}" Text="备注" />
+                <TextBox Height="80"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         VerticalContentAlignment="Top"
+                         Padding="12,10"
+                         FontSize="13"
+                         Background="{DynamicResource Brush.SurfaceSecondary}"
+                         BorderBrush="{DynamicResource Brush.SurfaceBorder}"
+                         BorderThickness="1"
+                         CaretBrush="{DynamicResource Brush.AccentPrimary}"
+                         Text="{Binding Remark, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border x:Name="Root"
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="8">
+                                            <ScrollViewer x:Name="PART_ContentHost"
+                                                          Margin="{TemplateBinding Padding}" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsFocused" Value="True">
+                                                <Setter TargetName="Root" Property="BorderBrush" Value="{DynamicResource Brush.AccentPrimary}" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+
+            <!-- Divider -->
+            <Border Grid.Row="13" Height="1"
+                    Background="{DynamicResource Brush.SurfaceBorder}" />
+
+            <!-- Action buttons -->
+            <Grid Grid.Row="14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0"
+                        Style="{StaticResource DangerButtonStyle}"
+                        x:Name="DeleteBtn"
+                        Content="删除记录"
+                        Click="OnDeleteClick" />
+
+                <Button Grid.Column="2"
+                        Style="{StaticResource SecondaryButtonStyle}"
+                        Content="取消"
+                        IsCancel="True"
+                        Click="OnCancelClick" />
+
+                <Button Grid.Column="4"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Content="保存"
+                        IsDefault="True"
+                        Click="OnSaveClick" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

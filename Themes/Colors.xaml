@@ -1,0 +1,67 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Background -->
+    <Color x:Key="Color.WindowBackground">#FFF0F2F5</Color>
+    <Color x:Key="Color.SidebarBackground">#FF1A2236</Color>
+    <Color x:Key="Color.SidebarHover">#FF243048</Color>
+    <Color x:Key="Color.SidebarActive">#FF2F3E58</Color>
+    <Color x:Key="Color.SidebarBorder">#FF2A3550</Color>
+    <Color x:Key="Color.SurfacePrimary">#FFFFFFFF</Color>
+    <Color x:Key="Color.SurfaceSecondary">#FFF5F7FA</Color>
+    <Color x:Key="Color.SurfaceBorder">#FFE4E8EF</Color>
+
+    <!-- Text -->
+    <Color x:Key="Color.TextPrimary">#FF111827</Color>
+    <Color x:Key="Color.TextSecondary">#FF6B7280</Color>
+    <Color x:Key="Color.TextMuted">#FF9CA3AF</Color>
+    <Color x:Key="Color.TextOnDark">#FFFFFFFF</Color>
+    <Color x:Key="Color.TextOnDarkMuted">#FFAAB4C8</Color>
+
+    <!-- Accent -->
+    <Color x:Key="Color.AccentPrimary">#FF3B6FE8</Color>
+    <Color x:Key="Color.AccentHover">#FF2B5ED6</Color>
+    <Color x:Key="Color.AccentSurface">#FFE8EFFC</Color>
+    <Color x:Key="Color.AccentText">#FF1E4DB7</Color>
+
+    <!-- Status -->
+    <Color x:Key="Color.StatusSuccessBackground">#FFE6F7EE</Color>
+    <Color x:Key="Color.StatusSuccessForeground">#FF0F7A3C</Color>
+    <Color x:Key="Color.StatusInfoBackground">#FFE6EFFE</Color>
+    <Color x:Key="Color.StatusInfoForeground">#FF1D4ED8</Color>
+    <Color x:Key="Color.StatusWarningBackground">#FFFEF3C7</Color>
+    <Color x:Key="Color.StatusWarningForeground">#FFB45309</Color>
+    <Color x:Key="Color.StatusNeutralBackground">#FFF1F5F9</Color>
+    <Color x:Key="Color.StatusNeutralForeground">#FF4B5563</Color>
+    <Color x:Key="Color.StatusDangerBackground">#FFFDE8E8</Color>
+    <Color x:Key="Color.StatusDangerForeground">#FFDC2626</Color>
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="Brush.WindowBackground"        Color="{StaticResource Color.WindowBackground}" />
+    <SolidColorBrush x:Key="Brush.SidebarBackground"       Color="{StaticResource Color.SidebarBackground}" />
+    <SolidColorBrush x:Key="Brush.SidebarHover"            Color="{StaticResource Color.SidebarHover}" />
+    <SolidColorBrush x:Key="Brush.SidebarActive"           Color="{StaticResource Color.SidebarActive}" />
+    <SolidColorBrush x:Key="Brush.SidebarBorder"           Color="{StaticResource Color.SidebarBorder}" />
+    <SolidColorBrush x:Key="Brush.SurfacePrimary"          Color="{StaticResource Color.SurfacePrimary}" />
+    <SolidColorBrush x:Key="Brush.SurfaceSecondary"        Color="{StaticResource Color.SurfaceSecondary}" />
+    <SolidColorBrush x:Key="Brush.SurfaceBorder"           Color="{StaticResource Color.SurfaceBorder}" />
+    <SolidColorBrush x:Key="Brush.TextPrimary"             Color="{StaticResource Color.TextPrimary}" />
+    <SolidColorBrush x:Key="Brush.TextSecondary"           Color="{StaticResource Color.TextSecondary}" />
+    <SolidColorBrush x:Key="Brush.TextMuted"               Color="{StaticResource Color.TextMuted}" />
+    <SolidColorBrush x:Key="Brush.TextOnDark"              Color="{StaticResource Color.TextOnDark}" />
+    <SolidColorBrush x:Key="Brush.TextOnDarkMuted"         Color="{StaticResource Color.TextOnDarkMuted}" />
+    <SolidColorBrush x:Key="Brush.AccentPrimary"           Color="{StaticResource Color.AccentPrimary}" />
+    <SolidColorBrush x:Key="Brush.AccentSecondary"         Color="{StaticResource Color.AccentHover}" />
+    <SolidColorBrush x:Key="Brush.AccentSurface"           Color="{StaticResource Color.AccentSurface}" />
+    <SolidColorBrush x:Key="Brush.AccentText"              Color="{StaticResource Color.AccentText}" />
+    <SolidColorBrush x:Key="Brush.StatusSuccessBackground" Color="{StaticResource Color.StatusSuccessBackground}" />
+    <SolidColorBrush x:Key="Brush.StatusSuccessForeground" Color="{StaticResource Color.StatusSuccessForeground}" />
+    <SolidColorBrush x:Key="Brush.StatusInfoBackground"    Color="{StaticResource Color.StatusInfoBackground}" />
+    <SolidColorBrush x:Key="Brush.StatusInfoForeground"    Color="{StaticResource Color.StatusInfoForeground}" />
+    <SolidColorBrush x:Key="Brush.StatusWarningBackground" Color="{StaticResource Color.StatusWarningBackground}" />
+    <SolidColorBrush x:Key="Brush.StatusWarningForeground" Color="{StaticResource Color.StatusWarningForeground}" />
+    <SolidColorBrush x:Key="Brush.StatusNeutralBackground" Color="{StaticResource Color.StatusNeutralBackground}" />
+    <SolidColorBrush x:Key="Brush.StatusNeutralForeground" Color="{StaticResource Color.StatusNeutralForeground}" />
+    <SolidColorBrush x:Key="Brush.StatusDangerBackground"  Color="{StaticResource Color.StatusDangerBackground}" />
+    <SolidColorBrush x:Key="Brush.StatusDangerForeground"  Color="{StaticResource Color.StatusDangerForeground}" />
+</ResourceDictionary>

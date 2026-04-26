@@ -1,0 +1,22 @@
+## Build output
+bin/
+obj/
+publish/
+
+## Temp and local test artifacts
+.tmp/
+*.tmp
+*.log
+
+## IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+## NuGet and tooling
+*.nupkg
+packages/
+
+## Runtime data (may contain sensitive records)
+data/

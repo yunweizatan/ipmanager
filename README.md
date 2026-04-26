@@ -80,12 +80,6 @@ dotnet publish -c Release -r win-x64 --self-contained false
 - 导入 CSV 失败：优先检查列名和列顺序是否与模板一致（见导入提示）
 - 密码显示异常：历史明文数据会在再次保存时自动转换为加密格式
 
-## 提交到 GitHub 前建议
-
-- 确认仅提交源代码和必要资源文件
-- 确认 `bin/`、`obj/`、`publish/`、`.tmp/`、`data/` 未被提交
-- 如需示例数据，请使用脱敏数据并单独放在 `docs/` 或 `samples/` 目录
-
 ## Roadmap
 
 - [ ] 增加一键导出 Excel（`.xlsx`）
